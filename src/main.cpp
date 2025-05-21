@@ -13,7 +13,7 @@ std::vector<BezierCurveData> curves;
 int currentCurveIndex = -1;
 
 BezierMethod currentMethod = BezierMethod::DeCasteljau;
-int resolution = 100;
+int p_courbe = 100;
 
 GLFWwindow* window = nullptr;
 
@@ -32,6 +32,120 @@ glm::vec2 screenToOpenGL(GLFWwindow* window, double xpos, double ypos)
     return glm::vec2(x, y);
 }
 
+void drawLineStrip(const std::vector<glm::vec2>& points, float r, float g, float b)
+{
+    glColor3f(r, g, b);
+    glBegin(GL_LINE_STRIP);
+    for (const auto& p : points) {
+        glVertex2f(p.x, p.y);
+    }
+    glEnd();
+}
+
+float cross(const glm::vec2& O, const glm::vec2& A, const glm::vec2& B) {
+    return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
+}
+
+std::vector<glm::vec2> generateCurvePoints(const BezierCurveData& curve, BezierMethod method, int p_courbe)
+{
+    std::vector<glm::vec2> result;
+    for (int i = 0; i <= p_courbe; ++i) {
+        float t = i / (float)p_courbe;
+        result.push_back(curve.evaluate(t, method));
+    }
+    return result;
+}
+
+std::vector<glm::vec2> grahamScan(std::vector<glm::vec2> points) {
+    if (points.size() <= 3)
+        return points;
+
+    // 1. Trouver le point le plus bas
+    std::swap(points[0], *std::min_element(points.begin(), points.end(),
+        [](const glm::vec2& a, const glm::vec2& b) {
+            return a.y < b.y || (a.y == b.y && a.x < b.x);
+        }));
+
+    glm::vec2 p0 = points[0];
+
+    // 2. Trier par angle polaire
+    std::sort(points.begin() + 1, points.end(),
+        [p0](const glm::vec2& a, const glm::vec2& b) {
+            float c = cross(p0, a, b);
+            if (c == 0)
+                return glm::distance(p0, a) < glm::distance(p0, b);
+            return c > 0;
+        });
+
+    // 3. Construire l'enveloppe
+    std::vector<glm::vec2> hull;
+    for (const auto& pt : points) {
+        while (hull.size() >= 2 && cross(hull[hull.size() - 2], hull.back(), pt) <= 0)
+            hull.pop_back();
+        hull.push_back(pt);
+    }
+
+    return hull;
+}
+
+bool doPolygonsIntersect(const std::vector<glm::vec2>& poly1, const std::vector<glm::vec2>& poly2) {
+    auto check = [](const glm::vec2& a1, const glm::vec2& a2, const glm::vec2& b1, const glm::vec2& b2) {
+        glm::vec2 r = a2 - a1;
+        glm::vec2 s = b2 - b1;
+        float denom = r.x * s.y - r.y * s.x;
+        if (denom == 0.0f) return false;
+
+        float t = ((b1 - a1).x * s.y - (b1 - a1).y * s.x) / denom;
+        float u = ((b1 - a1).x * r.y - (b1 - a1).y * r.x) / denom;
+        return (t >= 0 && t <= 1 && u >= 0 && u <= 1);
+    };
+
+    for (int i = 0; i < poly1.size(); ++i) {
+        glm::vec2 a1 = poly1[i];
+        glm::vec2 a2 = poly1[(i + 1) % poly1.size()];
+        for (int j = 0; j < poly2.size(); ++j) {
+            glm::vec2 b1 = poly2[j];
+            glm::vec2 b2 = poly2[(j + 1) % poly2.size()];
+            if (check(a1, a2, b1, b2))
+                return true;
+        }
+    }
+
+    return false;
+}
+
+bool computeSegmentIntersection(const glm::vec2& p1, const glm::vec2& p2,
+                                const glm::vec2& q1, const glm::vec2& q2,
+                                glm::vec2& intersection)
+{
+    glm::vec2 r = p2 - p1;
+    glm::vec2 s = q2 - q1;
+    float denom = r.x * s.y - r.y * s.x;
+
+    if (denom == 0.0f)
+        return false; // segments parallèles ou colinéaires
+
+    glm::vec2 diff = q1 - p1;
+    float t = (diff.x * s.y - diff.y * s.x) / denom;
+    float u = (diff.x * r.y - diff.y * r.x) / denom;
+
+    if (t >= 0 && t <= 1 && u >= 0 && u <= 1)
+    {
+        intersection = p1 + t * r;
+        return true;
+    }
+
+    return false;
+}
+
+void fillClosedCurve(const std::vector<glm::vec2>& points, float r, float g, float b)
+{
+    glColor4f(r, g, b, 0.3f); // avec un peu de transparence
+    glBegin(GL_TRIANGLE_FAN);
+    for (const auto& p : points)
+        glVertex2f(p.x, p.y);
+    glEnd();
+}
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
@@ -77,7 +191,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
             if (glm::distance(curve.controlPoints[i], mousePos) < pointSelectRadius)
             {
                 curve.controlPoints.erase(curve.controlPoints.begin() + i);
-                std::cout << "Point supprimé sur courbe " << currentCurveIndex << " à l’indice " << i << std::endl;
+                std::cout << "Point supprime sur courbe " << currentCurveIndex << " à l’indice " << i << std::endl;
                 if (curves.empty())
                 {
                     currentCurveIndex = -1;
@@ -97,26 +211,6 @@ void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
     }
 }
 
-void drawLineStrip(const std::vector<glm::vec2>& points, float r, float g, float b)
-{
-    glColor3f(r, g, b);
-    glBegin(GL_LINE_STRIP);
-    for (const auto& p : points) {
-        glVertex2f(p.x, p.y);
-    }
-    glEnd();
-}
-
-std::vector<glm::vec2> generateCurvePoints(const BezierCurveData& curve, BezierMethod method, int resolution)
-{
-    std::vector<glm::vec2> result;
-    for (int i = 0; i <= resolution; ++i) {
-        float t = i / (float)resolution;
-        result.push_back(curve.evaluate(t, method));
-    }
-    return result;
-}
-
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     if (action != GLFW_PRESS) return;
@@ -124,26 +218,33 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     if (key == GLFW_KEY_ESCAPE)
         glfwSetWindowShouldClose(window, true);
 
-    else if (key == GLFW_KEY_F)
+    else if (key == GLFW_KEY_KP_3)
+    {
         currentMethod = (currentMethod == BezierMethod::DeCasteljau)
             ? BezierMethod::DirectFormula
             : BezierMethod::DeCasteljau;
-
-    else if (key == GLFW_KEY_M && currentCurveIndex != -1)
-        curves[currentCurveIndex].duplicateLastPoint();
+        if (currentMethod == BezierMethod::DirectFormula) std::cout << "Utilisation de la formule directe" << std::endl;
+        else std::cout << "Utilisation de la formule de De Casteljau" << std::endl;
+    }
 
     else if (key == GLFW_KEY_EQUAL)
-        resolution += 10;
+    {
+        p_courbe = std::max(10, p_courbe + 10 );
+        std::cout << "pas de la courbe = " << p_courbe << std::endl;
+    }
 
-    else if (key == GLFW_KEY_MINUS)
-        resolution = std::max(10, resolution - 10);
+    else if (key == GLFW_KEY_6)
+    {
+        p_courbe = std::max(10, p_courbe - 10);
+        std::cout << "pas de la courbe = " << p_courbe << std::endl;
+    }
 
     else if (key == GLFW_KEY_N)
     {
 
         curves.emplace_back();
         currentCurveIndex = (int)curves.size() - 1;
-        std::cout << "Nouvelle courbe créée, index = " << currentCurveIndex << std::endl;
+        std::cout << "Nouvelle courbe, index = " << currentCurveIndex << std::endl;
     }
     else if (key == GLFW_KEY_W && !curves.empty())
     {
@@ -177,10 +278,26 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     {
         glm::mat3 matrix = glm::mat3(1.0f);
 
-        if (key == GLFW_KEY_LEFT) matrix[2][0] = -0.1f;
-        if (key == GLFW_KEY_RIGHT) matrix[2][0] = 0.1f;
-        if (key == GLFW_KEY_UP) matrix[2][1] = 0.1f;
-        if (key == GLFW_KEY_DOWN) matrix[2][1] = -0.1f;
+        if (key == GLFW_KEY_LEFT)
+        {
+            matrix[2][0] = -0.1f;
+            std::cout << "Translation gauche de la courbe " << currentCurveIndex << std::endl;
+        }
+        if (key == GLFW_KEY_RIGHT)
+        {
+            matrix[2][0] = 0.1f;
+            std::cout << "Translation droite de la courbe " << currentCurveIndex << std::endl;
+        }
+        if (key == GLFW_KEY_UP)
+        {
+            matrix[2][1] = 0.1f;
+            std::cout << "Translation haut de la courbe " << currentCurveIndex << std::endl;
+        }
+        if (key == GLFW_KEY_DOWN)
+        {
+            matrix[2][1] = -0.1f;
+            std::cout << "Translation bas de la courbe " << currentCurveIndex << std::endl;
+        }
 
         if (key == GLFW_KEY_R){
 
@@ -190,6 +307,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
                 -glm::sin(theta), glm::cos(theta), 0.0f,
                 0.0f, 0.0f, 1.0f
                 );
+            std::cout << "Rotation horaire de la courbe " << currentCurveIndex << std::endl;
         }
 
         if (key == GLFW_KEY_T){
@@ -200,26 +318,29 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
                 -glm::sin(theta), glm::cos(theta), 0.0f,
                 0.0f, 0.0f, 1.0f
                 );
+            std::cout << "Rotation antihoraire de la courbe " << currentCurveIndex << std::endl;
         }
         if (key == GLFW_KEY_Z){
 
             matrix[0][0] = 1.1f;
             matrix[1][1] = 1.1f;
-            std::cout << "Test scale up de la courbe " << currentCurveIndex << std::endl;
+            std::cout << "Scale up de la courbe " << currentCurveIndex << std::endl;
         }
         if (key == GLFW_KEY_S) {
 
             matrix[0][0] = 0.9f;
             matrix[1][1] = 0.9f;
-            std::cout << "Test scale down de la courbe " << currentCurveIndex << std::endl;
+            std::cout << "Scale down de la courbe " << currentCurveIndex << std::endl;
         }
         if (key == GLFW_KEY_H) {
 
             matrix[1][0] = 0.3f;
+            std::cout << "Scale horizontal de la courbe " << currentCurveIndex << std::endl;
         }
         if (key == GLFW_KEY_V){
 
             matrix[0][1] = 0.3f;
+            std::cout << "Scale vertical de la courbe " << currentCurveIndex << std::endl;
         }
         for (auto& pt : curves[currentCurveIndex].controlPoints)
         {
@@ -233,7 +354,103 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     else if (key == GLFW_KEY_M && currentCurveIndex != -1)
     {
         curves[currentCurveIndex].duplicateLastPoint();
+        std::cout << "Duplication du dernier point de la courbe " << currentCurveIndex << std::endl;
     }
+
+    else if (key == GLFW_KEY_I && curves.size() >= 2)
+    {
+        auto pts1 = generateCurvePoints(curves[0], currentMethod, p_courbe);
+        auto pts2 = generateCurvePoints(curves[1], currentMethod, p_courbe);
+
+        auto hull1 = grahamScan(pts1);
+        auto hull2 = grahamScan(pts2);
+
+        bool intersect = doPolygonsIntersect(hull1, hull2);
+        std::cout << "Intersection : " << (intersect ? "OUI" : "NON") << std::endl;
+
+        if (intersect)
+        {
+            glm::vec2 intersection;
+            for (int i = 0; i < pts1.size() - 1; ++i) {
+                glm::vec2 p1 = pts1[i];
+                glm::vec2 p2 = pts1[i + 1];
+                for (int j = 0; j < pts2.size() - 1; ++j) {
+                    glm::vec2 q1 = pts2[j];
+                    glm::vec2 q2 = pts2[j + 1];
+                    if (computeSegmentIntersection(p1, p2, q1, q2, intersection)) {
+                        std::cout << "Point d intersection : (" << intersection.x << ", " << intersection.y << ")\n";
+                        goto done; // on s'arrête au 1er point trouvé
+                    }
+                }
+            }
+            done:;
+        }
+    }
+    else if (key == GLFW_KEY_C && currentCurveIndex != -1) {
+        curves[currentCurveIndex].closeCurveC0();
+        std::cout << "Courbe fermée (C0)" << std::endl;
+    }
+    else if (key == GLFW_KEY_1 && currentCurveIndex != -1) {
+        curves[currentCurveIndex].closeCurveC1();
+        std::cout << "Courbe fermée (C1)" << std::endl;
+    }
+    else if (key == GLFW_KEY_2 && currentCurveIndex != -1) {
+        curves[currentCurveIndex].closeCurveC2();
+        std::cout << "Courbe fermée (C2)" << std::endl;
+    }
+    else if (key == GLFW_KEY_K && curves.size() >= 2)
+    {
+        int a = currentCurveIndex;
+        int b = (a + 1) % curves.size();
+        curves[a].connectC0(curves[b]);
+        std::cout << "Raccord C0 entre " << a << " et " << b << std::endl;
+    }
+    else if (key == GLFW_KEY_L && curves.size() >= 2)
+    {
+        int a = currentCurveIndex;
+        int b = (a + 1) % curves.size();
+        curves[a].connectC1(curves[b]);
+        std::cout << "Raccord C1 entre " << a << " et " << b << std::endl;
+    }
+    else if (key == GLFW_KEY_A && curves.size() >= 2)
+    {
+        int a = currentCurveIndex;
+        int b = (a + 1) % curves.size();
+        curves[a].connectC2(curves[b]);
+        std::cout << "Raccord C2 entre " << a << " et " << b << std::endl;
+    }
+    else if (key == GLFW_KEY_B)
+    {
+        curves.clear();
+        const int numCurves = 10;
+
+        // Point de départ
+        glm::vec2 start = glm::vec2(-0.9f, 0.0f);
+        glm::vec2 delta = glm::vec2(0.2f, 0.1f);  // espacement
+
+        // Première courbe manuelle
+        BezierCurveData base;
+        base.controlPoints.push_back(start);
+        base.controlPoints.push_back(start + glm::vec2(0.1f, 0.2f));
+        base.controlPoints.push_back(start + glm::vec2(0.2f, -0.2f));
+        base.controlPoints.push_back(start + glm::vec2(0.3f, 0.0f));
+        curves.push_back(base);
+
+        // Les 9 suivantes raccordées C²
+        for (int i = 1; i < numCurves; ++i) {
+            BezierCurveData next;
+            // Initialiser avec 4 points (à écraser)
+            next.controlPoints = {
+                glm::vec2(0), glm::vec2(0), glm::vec2(0), glm::vec2(0)
+            };
+            curves.push_back(next);
+            curves[i - 1].connectC2(curves[i]);
+        }
+
+        currentCurveIndex = 0;
+        std::cout << numCurves << " courbes raccordées C2 créées." << std::endl;
+    }
+
 
     /*else if (currentCurveIndex != -1 && key == GLFW_KEY_1)
     {
@@ -303,10 +520,23 @@ int main()
             // Courbe Bézier
             if (curves[i].controlPoints.size() >= 2)
             {
-                auto bezierPoints = generateCurvePoints(curves[i], currentMethod, resolution);
+                auto bezierPoints = generateCurvePoints(curves[i], currentMethod, p_courbe);
+                drawLineStrip(bezierPoints, r, g, b);
+            }
+            if (curves[i].controlPoints.size() >= 2)
+            {
+                auto bezierPoints = generateCurvePoints(curves[i], currentMethod, p_courbe);
+
+                // Si la courbe est fermée, on tente un remplissage
+                if (curves[i].isClosed()) {
+                    fillClosedCurve(bezierPoints, r, g, b);
+                }
+
                 drawLineStrip(bezierPoints, r, g, b);
             }
         }
+
+
 
         glfwSwapBuffers(window);
         glfwPollEvents();

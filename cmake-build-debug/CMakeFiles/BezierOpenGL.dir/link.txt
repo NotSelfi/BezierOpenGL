@@ -1,0 +1,3 @@
+"D:\Nouveau dossier\CLion 2025.1.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\BezierOpenGL.dir/objects.a
+C:\Users\robai\scoop\apps\mingw\current\bin\ar.exe qc CMakeFiles\BezierOpenGL.dir/objects.a @CMakeFiles\BezierOpenGL.dir\objects1.rsp
+C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe -g -Wl,--whole-archive CMakeFiles\BezierOpenGL.dir/objects.a -Wl,--no-whole-archive -o BezierOpenGL.exe -Wl,--out-implib,libBezierOpenGL.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BezierOpenGL.dir\linkLibs.rsp

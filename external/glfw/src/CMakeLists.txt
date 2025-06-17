@@ -5,7 +5,12 @@ add_library(glfw ${GLFW_LIBRARY_TYPE}
                  internal.h platform.h mappings.h
                  context.c init.c input.c monitor.c platform.c vulkan.c window.c
                  egl_context.c osmesa_context.c null_platform.h null_joystick.h
-                 null_init.c null_monitor.c null_window.c null_joystick.c)
+                 null_init.c null_monitor.c null_window.c null_joystick.c
+        ../../../src/Extrusion.cpp
+        ../../../include/Extrusion.hpp
+        ../../../include/Mesh.hpp
+        ../../../src/Camera.cpp
+)
 
 # The time, thread and module code is shared between all backends on a given OS,
 # including the null backend, which still needs those bits to be functional

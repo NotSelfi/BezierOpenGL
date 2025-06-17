@@ -1,13 +1,22 @@
+#include <algorithm>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <vector>
-
-#include <glm/glm.hpp>
+#include "../include/Extrusion.hpp"
+#include "../include/Mesh.hpp"
+#include <glm/gtc/matrix_transform.hpp>
+#include "../external/glm/glm/glm.hpp"
 #include "../include/BezierCurveData.hpp"
+#include "../include/Camera.hpp"
 
+
+
+Camera camera;
 const unsigned int WIDTH = 800;
 const unsigned int HEIGHT = 600;
+Mesh extrudedMesh;
+bool showExtrusion = false;
 
 std::vector<BezierCurveData> curves;
 int currentCurveIndex = -1;
@@ -30,6 +39,17 @@ glm::vec2 screenToOpenGL(GLFWwindow* window, double xpos, double ypos)
     float y = 1.0f - (2.0f * ypos) / height;
 
     return glm::vec2(x, y);
+}
+
+void drawMesh(const Mesh& mesh) {
+    glColor3f(0.8f, 0.5f, 0.2f); // couleur
+    glBegin(GL_TRIANGLES);
+    for (size_t i = 0; i < mesh.indices.size(); ++i) {
+        unsigned int idx = mesh.indices[i];
+        const glm::vec3& v = mesh.vertices[idx];
+        glVertex3f(v.x, v.y, v.z);
+    }
+    glEnd();
 }
 
 // Affiche les points sous forme de ligne
@@ -208,6 +228,19 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
             }
         }
     }
+
+    if (button == GLFW_MOUSE_BUTTON_RIGHT) {
+        if (action == GLFW_PRESS) {
+            camera.rotating = true;
+            double xpos, ypos;
+            glfwGetCursorPos(window, &xpos, &ypos);
+            camera.lastX = (float)xpos;
+            camera.lastY = (float)ypos;
+        }
+        else if (action == GLFW_RELEASE) {
+            camera.rotating = false;
+        }
+    }
 }
 
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
@@ -216,6 +249,9 @@ void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
     {
         glm::vec2 newPos = screenToOpenGL(window, xpos, ypos);
         curves[currentCurveIndex].controlPoints[selectedPointIndex] = newPos;
+    }
+    if (camera.rotating) {
+        camera.processMouseMovement((float)xpos, (float)ypos);
     }
 }
 
@@ -459,6 +495,17 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         std::cout << numCurves << " courbes raccordées C2 créées." << std::endl;
     }
 
+    else if (key == GLFW_KEY_E && currentCurveIndex != -1)
+    {
+        const auto& curve = curves[currentCurveIndex];
+        if (curve.controlPoints.size() >= 2) {
+            auto profile2D = generateCurvePoints(curve, currentMethod, p_courbe);
+            extrudedMesh = extrudeLinear(profile2D, 1.0f /* hauteur */, 1.0f /* scaleTop */);
+            showExtrusion = true;
+            std::cout << "Extrusion générée pour la courbe " << currentCurveIndex << std::endl;
+        }
+    }
+
 
     /*else if (currentCurveIndex != -1 && key == GLFW_KEY_1)
     {
@@ -476,6 +523,8 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     glViewport(0, 0, width, height);
 }
+
+
 
 int main()
 {
@@ -510,41 +559,72 @@ int main()
     curves.emplace_back();
     currentCurveIndex = 0;
 
+    glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)WIDTH / HEIGHT, 0.1f, 100.0f);
+    // glm::mat4 view = glm::lookAt(
+    //     glm::vec3(0.0f, 0.0f, 3.0f),  // position caméra
+    //     glm::vec3(0.0f, 0.0f, 0.0f),  // regarde vers
+    //     glm::vec3(0.0f, 1.0f, 0.0f)   // haut
+    // );
+
+    glm::mat4 view = camera.getViewMatrix();
+    glm::mat4 mvp = projection * view;
+
+    // Transmettre à OpenGL (version immediate mode)
+    glMatrixMode(GL_PROJECTION);
+    glLoadMatrixf(&projection[0][0]);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadMatrixf(&view[0][0]);
+
     while (!glfwWindowShouldClose(window))
     {
         glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        // Affiche toutes les courbes
+        // ==== Affichage des courbes 2D ====
+        glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
+        glLoadIdentity();
+        glOrtho(-1, 1, -1, 1, -1, 1);
+
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+        glLoadIdentity();
+
         for (int i = 0; i < curves.size(); ++i)
         {
             float r = (i == currentCurveIndex) ? 1.0f : 0.6f;
             float g = (i == currentCurveIndex) ? 1.0f : 0.6f;
             float b = (i == currentCurveIndex) ? 0.0f : 0.6f;
 
-            // Points de contrôle
             drawLineStrip(curves[i].controlPoints, r * 1.0f, g * 0.2f, b * 0.2f);
 
-            // Courbe Bézier
             if (curves[i].controlPoints.size() >= 2)
             {
                 auto bezierPoints = generateCurvePoints(curves[i], currentMethod, p_courbe);
-                drawLineStrip(bezierPoints, r, g, b);
-            }
-            if (curves[i].controlPoints.size() >= 2)
-            {
-                auto bezierPoints = generateCurvePoints(curves[i], currentMethod, p_courbe);
-
-                // Si la courbe est fermée, on tente un remplissage
                 if (curves[i].isClosed()) {
                     fillClosedCurve(bezierPoints, r, g, b);
                 }
-
                 drawLineStrip(bezierPoints, r, g, b);
             }
         }
 
+        glPopMatrix(); // MODELVIEW
+        glMatrixMode(GL_PROJECTION);
+        glPopMatrix();
 
+        // ==== Affichage extrusion 3D ====
+        if (showExtrusion) {
+            glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)WIDTH / HEIGHT, 0.1f, 100.0f);
+            glm::mat4 view = camera.getViewMatrix();
+
+            glMatrixMode(GL_PROJECTION);
+            glLoadMatrixf(&projection[0][0]);
+            glMatrixMode(GL_MODELVIEW);
+            glLoadMatrixf(&view[0][0]);
+
+            drawMesh(extrudedMesh);
+        }
 
         glfwSwapBuffers(window);
         glfwPollEvents();

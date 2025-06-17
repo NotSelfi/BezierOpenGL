@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/lesly/CLionProjects/BezierOpenGL/external/glfw/src
+# Install script for directory: C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glfw/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,16 +34,16 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Program Files/JetBrains/CLion 2025.1/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/robai/scoop/apps/mingw/current/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/lesly/CLionProjects/BezierOpenGL/cmake-build-debug/external/glfw/src/libglfw3.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/robai/Documents/GitHub/BezierOpenGL/cmake-build-debug/external/glfw/src/libglfw3.a")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/lesly/CLionProjects/BezierOpenGL/cmake-build-debug/external/glfw/src/install_local_manifest.txt"
+  file(WRITE "C:/Users/robai/Documents/GitHub/BezierOpenGL/cmake-build-debug/external/glfw/src/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

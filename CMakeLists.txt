@@ -13,12 +13,22 @@ include_directories(
     external/glm
 )
 
-add_library(glad external/glad/src/glad.c)
+add_library(glad external/glad/src/glad.c
+        src/Extrusion.cpp
+        include/Extrusion.hpp
+        include/Mesh.hpp
+        src/Camera.cpp
+)
 target_include_directories(glad PUBLIC external/glad/include)
 
 add_executable(BezierOpenGL
     src/main.cpp
     src/BezierCurveData.cpp
+        src/Extrusion.cpp
+        include/Extrusion.hpp
+        include/Mesh.hpp
+        include/Camera.hpp
+        src/Camera.cpp
 )
 
 target_link_libraries(BezierOpenGL glfw glad)

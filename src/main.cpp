@@ -32,6 +32,7 @@ glm::vec2 screenToOpenGL(GLFWwindow* window, double xpos, double ypos)
     return glm::vec2(x, y);
 }
 
+// Affiche les points sous forme de ligne
 void drawLineStrip(const std::vector<glm::vec2>& points, float r, float g, float b)
 {
     glColor3f(r, g, b);
@@ -42,10 +43,12 @@ void drawLineStrip(const std::vector<glm::vec2>& points, float r, float g, float
     glEnd();
 }
 
+// Calcule le produit vectoriel entre OA et OB
 float cross(const glm::vec2& O, const glm::vec2& A, const glm::vec2& B) {
     return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
 }
 
+// Génère les points selon la méthode
 std::vector<glm::vec2> generateCurvePoints(const BezierCurveData& curve, BezierMethod method, int p_courbe)
 {
     std::vector<glm::vec2> result;
@@ -56,11 +59,12 @@ std::vector<glm::vec2> generateCurvePoints(const BezierCurveData& curve, BezierM
     return result;
 }
 
+// Enveloppe convexe
 std::vector<glm::vec2> grahamScan(std::vector<glm::vec2> points) {
     if (points.size() <= 3)
         return points;
 
-    // 1. Trouver le point le plus bas
+    // Point le plus bas
     std::swap(points[0], *std::min_element(points.begin(), points.end(),
         [](const glm::vec2& a, const glm::vec2& b) {
             return a.y < b.y || (a.y == b.y && a.x < b.x);
@@ -68,7 +72,7 @@ std::vector<glm::vec2> grahamScan(std::vector<glm::vec2> points) {
 
     glm::vec2 p0 = points[0];
 
-    // 2. Trier par angle polaire
+    // Trie les points depuis le point le plus bas
     std::sort(points.begin() + 1, points.end(),
         [p0](const glm::vec2& a, const glm::vec2& b) {
             float c = cross(p0, a, b);
@@ -77,7 +81,7 @@ std::vector<glm::vec2> grahamScan(std::vector<glm::vec2> points) {
             return c > 0;
         });
 
-    // 3. Construire l'enveloppe
+    //Construction de l'enveloppe
     std::vector<glm::vec2> hull;
     for (const auto& pt : points) {
         while (hull.size() >= 2 && cross(hull[hull.size() - 2], hull.back(), pt) <= 0)
@@ -88,6 +92,7 @@ std::vector<glm::vec2> grahamScan(std::vector<glm::vec2> points) {
     return hull;
 }
 
+//Vérifie Intersection
 bool doPolygonsIntersect(const std::vector<glm::vec2>& poly1, const std::vector<glm::vec2>& poly2) {
     auto check = [](const glm::vec2& a1, const glm::vec2& a2, const glm::vec2& b1, const glm::vec2& b2) {
         glm::vec2 r = a2 - a1;
@@ -100,6 +105,7 @@ bool doPolygonsIntersect(const std::vector<glm::vec2>& poly1, const std::vector<
         return (t >= 0 && t <= 1 && u >= 0 && u <= 1);
     };
 
+    // Comparer chaques segments
     for (int i = 0; i < poly1.size(); ++i) {
         glm::vec2 a1 = poly1[i];
         glm::vec2 a2 = poly1[(i + 1) % poly1.size()];
@@ -114,6 +120,7 @@ bool doPolygonsIntersect(const std::vector<glm::vec2>& poly1, const std::vector<
     return false;
 }
 
+// Calcule l'intersection de deux segments -> TRUE = intersection trouvée
 bool computeSegmentIntersection(const glm::vec2& p1, const glm::vec2& p2,
                                 const glm::vec2& q1, const glm::vec2& q2,
                                 glm::vec2& intersection)
@@ -123,7 +130,7 @@ bool computeSegmentIntersection(const glm::vec2& p1, const glm::vec2& p2,
     float denom = r.x * s.y - r.y * s.x;
 
     if (denom == 0.0f)
-        return false; // segments parallèles ou colinéaires
+        return false; // segments parallèles
 
     glm::vec2 diff = q1 - p1;
     float t = (diff.x * s.y - diff.y * s.x) / denom;
@@ -138,6 +145,7 @@ bool computeSegmentIntersection(const glm::vec2& p1, const glm::vec2& p2,
     return false;
 }
 
+// Remplit une forme fermée
 void fillClosedCurve(const std::vector<glm::vec2>& points, float r, float g, float b)
 {
     glColor4f(r, g, b, 0.3f); // avec un peu de transparence
@@ -348,7 +356,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
             glm::vec3 q = matrix * p;
             pt = glm::vec2(q);
         }
-        std::cout << "Transformation de la courbe " << currentCurveIndex << std::endl;
+        //std::cout << "Transformation de la courbe " << currentCurveIndex << std::endl;
 
     }
     else if (key == GLFW_KEY_M && currentCurveIndex != -1)

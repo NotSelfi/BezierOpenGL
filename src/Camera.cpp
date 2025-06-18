@@ -32,3 +32,21 @@ void Camera::processMouseMovement(float xpos, float ypos) {
     lastX = xpos;
     lastY = ypos;
 }
+
+void Camera::processScroll(float yoffset) {
+    radius -= yoffset * 0.3f;
+    radius = glm::clamp(radius, 0.5f, 50.0f);  // Limites de zoom
+}
+
+void Camera::processPan(float dx, float dy) {
+    float panSpeed = 0.002f * radius;
+
+    // Vecteurs de base de la caméra
+    glm::vec3 up(0.0f, 1.0f, 0.0f);
+    glm::vec3 forward = glm::normalize(target - getPosition());
+    glm::vec3 right = glm::normalize(glm::cross(forward, up));
+    glm::vec3 camUp = glm::normalize(glm::cross(right, forward));
+
+    target += -right * dx * panSpeed + camUp * dy * panSpeed;
+}
+

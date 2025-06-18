@@ -7,28 +7,47 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_subdirectory(external/glfw)
 
 include_directories(
-    include
-    external/glad/include
-    external/glfw/include
-    external/glm
+        include
+        external/glad/include
+        external/glfw/include
+        external/glm
 )
 
-add_library(glad external/glad/src/glad.c
-        src/Extrusion.cpp
-        include/Extrusion.hpp
-        include/Mesh.hpp
-        src/Camera.cpp
+# ImGui setup
+add_library(imgui
+        external/imgui/imgui.cpp
+        external/imgui/imgui_draw.cpp
+        external/imgui/imgui_widgets.cpp
+        external/imgui/imgui_tables.cpp
+        external/imgui/backends/imgui_impl_glfw.cpp
+        external/imgui/backends/imgui_impl_opengl3.cpp
 )
-target_include_directories(glad PUBLIC external/glad/include)
+
+target_include_directories(imgui PUBLIC
+        external/imgui
+        external/imgui/backends
+)
+
+add_library(glad external/glad/src/glad.c)
 
 add_executable(BezierOpenGL
-    src/main.cpp
-    src/BezierCurveData.cpp
+        src/main.cpp
+        src/BezierCurveData.cpp
         src/Extrusion.cpp
-        include/Extrusion.hpp
-        include/Mesh.hpp
-        include/Camera.hpp
         src/Camera.cpp
 )
 
-target_link_libraries(BezierOpenGL glfw glad)
+target_link_libraries(BezierOpenGL glfw glad imgui)
+
+# === Platform stuff ===
+if (WIN32)
+    target_link_libraries(BezierOpenGL opengl32)
+elseif(APPLE)
+    find_library(COCOA_LIBRARY Cocoa)
+    find_library(OpenGL_LIBRARY OpenGL)
+    find_library(IOKIT_LIBRARY IOKit)
+    find_library(CoreVideo_LIBRARY CoreVideo)
+    target_link_libraries(BezierOpenGL ${COCOA_LIBRARY} ${OpenGL_LIBRARY} ${IOKIT_LIBRARY} ${CoreVideo_LIBRARY})
+else()
+    target_link_libraries(BezierOpenGL GL dl pthread X11 Xxf86vm Xrandr Xi Xcursor)
+endif()

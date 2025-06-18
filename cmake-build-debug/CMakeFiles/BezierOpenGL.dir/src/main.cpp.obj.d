@@ -335,6 +335,8 @@ CMakeFiles/BezierOpenGL.dir/src/main.cpp.obj: \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/integer.hpp \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/detail/func_integer.inl \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/include/Mesh.hpp \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/include/BezierCurveData.hpp \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/include/Camera.hpp \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/gtc/matrix_transform.hpp \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_projection.hpp \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/gtc/constants.hpp \
@@ -347,5 +349,12 @@ CMakeFiles/BezierOpenGL.dir/src/main.cpp.obj: \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_transform.hpp \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_transform.inl \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/gtc/matrix_transform.inl \
- C:/Users/robai/Documents/GitHub/BezierOpenGL/include/BezierCurveData.hpp \
- C:/Users/robai/Documents/GitHub/BezierOpenGL/include/Camera.hpp
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/imgui.h \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/imconfig.h \
+ C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdarg.h \
+ C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/stdarg.h \
+ C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+ C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/string.h \
+ C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/backends/imgui_impl_glfw.h \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/backends/imgui_impl_opengl3.h

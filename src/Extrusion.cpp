@@ -3,22 +3,22 @@
 //
 
 #include "../include/Extrusion.hpp"
+float pi = 3.14159265358;
 
 Mesh extrudeLinear(const std::vector<glm::vec2>& profile, float height, float scaleTop) {
     Mesh mesh;
-
     int n = profile.size();
-    if (n < 2) return mesh;
+    if (n < 3) return mesh;  // au moins un polygone
 
     // Étape 1 : base (z=0)
     for (const auto& p : profile)
         mesh.vertices.push_back(glm::vec3(p, 0.0f));
 
-    // Étape 2 : top (z=height), avec mise à l’échelle
+    // Étape 2 : top (z=height)
     for (const auto& p : profile)
         mesh.vertices.push_back(glm::vec3(p * scaleTop, height));
 
-    // Étape 3 : générer les faces latérales (triangles)
+    // Étape 3 : faces latérales
     for (int i = 0; i < n; ++i) {
         int next = (i + 1) % n;
 
@@ -33,7 +33,21 @@ Mesh extrudeLinear(const std::vector<glm::vec2>& profile, float height, float sc
         mesh.indices.push_back(n + i);
     }
 
-    // Étape 4 (optionnel) : générer les normales (approximatives)
+    // Étape 4 : face inférieure (z=0)
+    for (int i = 1; i < n - 1; ++i) {
+        mesh.indices.push_back(0);
+        mesh.indices.push_back(i);
+        mesh.indices.push_back(i + 1);
+    }
+
+    // Étape 5 : face supérieure (z=height)
+    for (int i = 1; i < n - 1; ++i) {
+        mesh.indices.push_back(n);
+        mesh.indices.push_back(n + i + 1);
+        mesh.indices.push_back(n + i);
+    }
+
+    // Étape 6 : Normales
     mesh.normals.resize(mesh.vertices.size(), glm::vec3(0.0f));
     for (size_t i = 0; i < mesh.indices.size(); i += 3) {
         unsigned int i0 = mesh.indices[i];
@@ -51,9 +65,56 @@ Mesh extrudeLinear(const std::vector<glm::vec2>& profile, float height, float sc
         mesh.normals[i2] += normal;
     }
 
-    // Normalize les normales
     for (auto& n : mesh.normals)
         n = glm::normalize(n);
+
+    return mesh;
+}
+
+Mesh extrudeRevolution(const std::vector<glm::vec2>& profile, int slices = 36) {
+    Mesh mesh;
+    int n = profile.size();
+    if (n < 2) return mesh;
+
+    // Étape 1 : Générer les vertex
+    for (int i = 0; i <= slices; ++i) {
+        float theta = (float)i / slices * 2.0f * pi;
+        float c = cos(theta);
+        float s = sin(theta);
+        for (const auto& p : profile) {
+            glm::vec3 rotated(p.x * c, p.x * s, p.y);  // On tourne autour de l'axe Z
+            mesh.vertices.push_back(rotated);
+        }
+    }
+
+    // Étape 2 : Générer les faces
+    int ring = n;
+    for (int i = 0; i < slices; ++i) {
+        for (int j = 0; j < n - 1; ++j) {
+            int curr = i * ring + j;
+            int next = (i + 1) * ring + j;
+
+            mesh.indices.push_back(curr);
+            mesh.indices.push_back(next);
+            mesh.indices.push_back(curr + 1);
+
+            mesh.indices.push_back(curr + 1);
+            mesh.indices.push_back(next);
+            mesh.indices.push_back(next + 1);
+        }
+    }
+
+    // Étape 3 : Normales (comme d’habitude)
+    mesh.normals.resize(mesh.vertices.size(), glm::vec3(0.0f));
+    for (size_t i = 0; i < mesh.indices.size(); i += 3) {
+        auto i0 = mesh.indices[i], i1 = mesh.indices[i+1], i2 = mesh.indices[i+2];
+        glm::vec3 v0 = mesh.vertices[i0], v1 = mesh.vertices[i1], v2 = mesh.vertices[i2];
+        glm::vec3 n = glm::normalize(glm::cross(v1 - v0, v2 - v0));
+        mesh.normals[i0] += n;
+        mesh.normals[i1] += n;
+        mesh.normals[i2] += n;
+    }
+    for (auto& n : mesh.normals) n = glm::normalize(n);
 
     return mesh;
 }

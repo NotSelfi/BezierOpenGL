@@ -911,6 +911,10 @@ CMakeFiles/BezierOpenGL.dir/src/main.cpp.obj: C:/Users/robai/Documents/GitHub/Be
   C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/vec3.hpp \
   C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/vec4.hpp \
   C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/vector_relational.hpp \
+  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/backends/imgui_impl_glfw.h \
+  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/backends/imgui_impl_opengl3.h \
+  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/imconfig.h \
+  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/imgui.h \
   C:/Users/robai/Documents/GitHub/BezierOpenGL/include/BezierCurveData.hpp \
   C:/Users/robai/Documents/GitHub/BezierOpenGL/include/Camera.hpp \
   C:/Users/robai/Documents/GitHub/BezierOpenGL/include/Extrusion.hpp \
@@ -1064,6 +1068,7 @@ CMakeFiles/BezierOpenGL.dir/src/main.cpp.obj: C:/Users/robai/Documents/GitHub/Be
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/float.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
+  C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdarg.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h \
@@ -1072,6 +1077,7 @@ CMakeFiles/BezierOpenGL.dir/src/main.cpp.obj: C:/Users/robai/Documents/GitHub/Be
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/_mingw_off_t.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/_mingw_secapi.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/_mingw_stdarg.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/_timeval.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/assert.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/corecrt.h \
@@ -1095,13 +1101,16 @@ CMakeFiles/BezierOpenGL.dir/src/main.cpp.obj: C:/Users/robai/Documents/GitHub/Be
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sec_api/string_s.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/signal.h \
+  C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/stdarg.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/stddef.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/stdint.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/stdio.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/stdlib.h \
+  C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/string.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sys/timeb.h \
   C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sys/types.h \
@@ -1123,6 +1132,8 @@ C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14
 
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_double2x2_precision.hpp:
 
+C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/_mingw_stdarg.h:
+
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/detail/type_mat3x2.hpp:
 
 C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/pstl/execution_defs.h:
@@ -1132,6 +1143,8 @@ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/detail/_vectorize.
 C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/ext/string_conversions.h:
 
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_double4x4_precision.hpp:
+
+C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/stdarg.h:
 
 C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h:
 
@@ -1240,6 +1253,8 @@ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_double2
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/detail/type_mat3x3.hpp:
 
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/detail/type_mat3x3.inl:
+
+C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/string.h:
 
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/detail/type_mat3x4.hpp:
 
@@ -1353,6 +1368,8 @@ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/scalar_constan
 
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/scalar_int_sized.hpp:
 
+C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sec_api/string_s.h:
+
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/scalar_uint_sized.hpp:
 
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/vector_bool2.hpp:
@@ -1462,6 +1479,8 @@ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/mat2x4.hpp:
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/mat3x2.hpp:
 
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/mat3x3.hpp:
+
+C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/imgui.h:
 
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/packing.hpp:
 
@@ -1611,6 +1630,8 @@ C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14
 
 C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/ext/type_traits.h:
 
+C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdarg.h:
+
 C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/functional:
 
 C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/initializer_list:
@@ -1693,6 +1714,8 @@ C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/fl
 
 C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/limits.h:
 
+C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/backends/imgui_impl_glfw.h:
+
 C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/malloc.h:
 
 C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/x86_64-w64-mingw32/include/sec_api/stdlib_s.h:
@@ -1744,6 +1767,10 @@ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glad/include/KHR/khrplatfo
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glad/include/glad/glad.h:
 
 C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glfw/include/GLFW/glfw3.h:
+
+C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/backends/imgui_impl_opengl3.h:
+
+C:/Users/robai/Documents/GitHub/BezierOpenGL/external/imgui/imconfig.h:
 
 C:/Users/robai/scoop/apps/mingw/14.2.0-rt_v12-rev0/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/basic_ios.h:
 

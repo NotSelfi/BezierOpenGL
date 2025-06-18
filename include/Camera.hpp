@@ -20,5 +20,8 @@ public:
     glm::vec3 getPosition() const;
     glm::mat4 getViewMatrix() const;
     void processMouseMovement(float xpos, float ypos);
+    void processScroll(float yoffset);
+    bool panning = false;
+    void processPan(float dx, float dy);
 };
 #endif //CAMERA_H

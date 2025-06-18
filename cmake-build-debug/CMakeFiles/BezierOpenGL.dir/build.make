@@ -148,6 +148,7 @@ BezierOpenGL.exe: CMakeFiles/BezierOpenGL.dir/src/Camera.cpp.obj
 BezierOpenGL.exe: CMakeFiles/BezierOpenGL.dir/build.make
 BezierOpenGL.exe: external/glfw/src/libglfw3.a
 BezierOpenGL.exe: libglad.a
+BezierOpenGL.exe: libimgui.a
 BezierOpenGL.exe: CMakeFiles/BezierOpenGL.dir/linkLibs.rsp
 BezierOpenGL.exe: CMakeFiles/BezierOpenGL.dir/objects1.rsp
 BezierOpenGL.exe: CMakeFiles/BezierOpenGL.dir/link.txt

@@ -8,7 +8,12 @@ glm::vec2 BezierCurveData::evaluate(float t, BezierMethod method) const {
 }
 
 glm::vec2 BezierCurveData::deCasteljau(float t) const {
+    if (controlPoints.empty()) {
+        return glm::vec2(0.0f);  // ou glm::vec2(NaN) si tu veux détecter l'erreur
+    }
+
     std::vector<glm::vec2> temp = controlPoints;
+
     while (temp.size() > 1) {
         std::vector<glm::vec2> next;
         for (size_t i = 0; i < temp.size() - 1; ++i) {
@@ -17,7 +22,8 @@ glm::vec2 BezierCurveData::deCasteljau(float t) const {
         }
         temp = next;
     }
-    return temp[0];
+
+    return temp[0];  // Maintenant sécurisé
 }
 
 

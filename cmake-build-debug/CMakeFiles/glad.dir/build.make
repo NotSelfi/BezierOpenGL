@@ -86,51 +86,17 @@ CMakeFiles/glad.dir/external/glad/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glad.dir/external/glad/src/glad.c.s"
 	C:\Users\robai\scoop\apps\mingw\current\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\robai\Documents\GitHub\BezierOpenGL\external\glad\src\glad.c -o CMakeFiles\glad.dir\external\glad\src\glad.c.s
 
-CMakeFiles/glad.dir/src/Extrusion.cpp.obj: CMakeFiles/glad.dir/flags.make
-CMakeFiles/glad.dir/src/Extrusion.cpp.obj: CMakeFiles/glad.dir/includes_CXX.rsp
-CMakeFiles/glad.dir/src/Extrusion.cpp.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/src/Extrusion.cpp
-CMakeFiles/glad.dir/src/Extrusion.cpp.obj: CMakeFiles/glad.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/glad.dir/src/Extrusion.cpp.obj"
-	C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/glad.dir/src/Extrusion.cpp.obj -MF CMakeFiles\glad.dir\src\Extrusion.cpp.obj.d -o CMakeFiles\glad.dir\src\Extrusion.cpp.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Extrusion.cpp
-
-CMakeFiles/glad.dir/src/Extrusion.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/glad.dir/src/Extrusion.cpp.i"
-	C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Extrusion.cpp > CMakeFiles\glad.dir\src\Extrusion.cpp.i
-
-CMakeFiles/glad.dir/src/Extrusion.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/glad.dir/src/Extrusion.cpp.s"
-	C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Extrusion.cpp -o CMakeFiles\glad.dir\src\Extrusion.cpp.s
-
-CMakeFiles/glad.dir/src/Camera.cpp.obj: CMakeFiles/glad.dir/flags.make
-CMakeFiles/glad.dir/src/Camera.cpp.obj: CMakeFiles/glad.dir/includes_CXX.rsp
-CMakeFiles/glad.dir/src/Camera.cpp.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/src/Camera.cpp
-CMakeFiles/glad.dir/src/Camera.cpp.obj: CMakeFiles/glad.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/glad.dir/src/Camera.cpp.obj"
-	C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/glad.dir/src/Camera.cpp.obj -MF CMakeFiles\glad.dir\src\Camera.cpp.obj.d -o CMakeFiles\glad.dir\src\Camera.cpp.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Camera.cpp
-
-CMakeFiles/glad.dir/src/Camera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/glad.dir/src/Camera.cpp.i"
-	C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Camera.cpp > CMakeFiles\glad.dir\src\Camera.cpp.i
-
-CMakeFiles/glad.dir/src/Camera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/glad.dir/src/Camera.cpp.s"
-	C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Camera.cpp -o CMakeFiles\glad.dir\src\Camera.cpp.s
-
 # Object files for target glad
 glad_OBJECTS = \
-"CMakeFiles/glad.dir/external/glad/src/glad.c.obj" \
-"CMakeFiles/glad.dir/src/Extrusion.cpp.obj" \
-"CMakeFiles/glad.dir/src/Camera.cpp.obj"
+"CMakeFiles/glad.dir/external/glad/src/glad.c.obj"
 
 # External object files for target glad
 glad_EXTERNAL_OBJECTS =
 
 libglad.a: CMakeFiles/glad.dir/external/glad/src/glad.c.obj
-libglad.a: CMakeFiles/glad.dir/src/Extrusion.cpp.obj
-libglad.a: CMakeFiles/glad.dir/src/Camera.cpp.obj
 libglad.a: CMakeFiles/glad.dir/build.make
 libglad.a: CMakeFiles/glad.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libglad.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libglad.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\glad.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\glad.dir\link.txt --verbose=$(VERBOSE)
 

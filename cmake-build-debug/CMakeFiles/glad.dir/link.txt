@@ -1,2 +1,2 @@
-C:\Users\robai\scoop\apps\mingw\current\bin\ar.exe qc libglad.a CMakeFiles/glad.dir/external/glad/src/glad.c.obj CMakeFiles/glad.dir/src/Extrusion.cpp.obj CMakeFiles/glad.dir/src/Camera.cpp.obj
+C:\Users\robai\scoop\apps\mingw\current\bin\ar.exe qc libglad.a CMakeFiles/glad.dir/external/glad/src/glad.c.obj
 C:\Users\robai\scoop\apps\mingw\current\bin\ranlib.exe libglad.a

@@ -21,6 +21,7 @@ add_library(imgui
         external/imgui/imgui_tables.cpp
         external/imgui/backends/imgui_impl_glfw.cpp
         external/imgui/backends/imgui_impl_opengl3.cpp
+        src/Mesh.cpp
 )
 
 target_include_directories(imgui PUBLIC
@@ -28,13 +29,15 @@ target_include_directories(imgui PUBLIC
         external/imgui/backends
 )
 
-add_library(glad external/glad/src/glad.c)
+add_library(glad external/glad/src/glad.c
+        src/Mesh.cpp)
 
 add_executable(BezierOpenGL
         src/main.cpp
         src/BezierCurveData.cpp
         src/Extrusion.cpp
         src/Camera.cpp
+        src/Mesh.cpp
 )
 
 target_link_libraries(BezierOpenGL glfw glad imgui)

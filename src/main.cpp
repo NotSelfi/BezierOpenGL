@@ -21,6 +21,7 @@ GLFWwindow* window = nullptr;
 Mesh extrudedMesh;
 bool showExtrusion = false;
 bool revolutionMode = false;
+bool generalizedMode = false;
 
 std::vector<BezierCurveData> curves;
 int currentCurveIndex = -1;
@@ -86,6 +87,18 @@ std::vector<glm::vec2> generateCurvePoints(const BezierCurveData& curve, BezierM
         result.push_back(curve.evaluate(t, method));
     }
     return result;
+}
+
+std::vector<glm::vec3> generateGeneralPath() {
+    std::vector<glm::vec3> path;
+    for (int i = 0; i < 100; ++i) {
+        float t = i / 99.0f;
+        float x = t * 2.0f - 1.0f;
+        float y = 0.0f;
+        float z = sinf(t * 4.0f * 3.1415f) * 0.2f;
+        path.push_back(glm::vec3(x, y, z));
+    }
+    return path;
 }
 
 void drawCurve2D() {
@@ -182,6 +195,10 @@ int main() {
     glEnable(GL_COLOR_MATERIAL);
     glShadeModel(GL_SMOOTH);
 
+    static float height = 1.0f;
+    static float scaleTop = 1.0f;
+    static int slices = 36;
+
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
         processInput(window);
@@ -209,18 +226,18 @@ int main() {
             if (ImGui::Button("Fermer C2")) curves[currentCurveIndex].closeCurveC2();
         }
 
-        static float height = 1.0f;
-        static float scaleTop = 1.0f;
-        static int slices = 36;
         ImGui::SliderFloat("Hauteur", &height, 0.1f, 5.0f);
         ImGui::SliderFloat("Echelle top", &scaleTop, 0.1f, 2.0f);
         ImGui::SliderInt("Révol. segments", &slices, 3, 100);
         ImGui::Checkbox("Mode révolution", &revolutionMode);
+        ImGui::Checkbox("Mode généralisé", &generalizedMode);
 
         if (ImGui::Button("Générer extrusion") && currentCurveIndex != -1) {
             auto profile2D = generateCurvePoints(curves[currentCurveIndex], currentMethod, p_courbe);
             if (revolutionMode)
                 extrudedMesh = extrudeRevolution(profile2D, slices);
+            else if (generalizedMode)
+                extrudedMesh = extrudeGeneralized(profile2D, generateGeneralPath());
             else
                 extrudedMesh = extrudeLinear(profile2D, height, scaleTop);
             showExtrusion = true;
@@ -230,41 +247,37 @@ int main() {
         ImGui::SeparatorText("Lumière");
         ImGui::SliderFloat3("Position lumière", &lightPosition.x, -5.0f, 5.0f);
         ImGui::ColorEdit3("Couleur objet", &objectColor.x);
-
-        ImGui::SeparatorText("Rendu");
         ImGui::RadioButton("Mode plein", &renderMode, 0);
         ImGui::SameLine();
         ImGui::RadioButton("Mode filaire", &renderMode, 1);
-
         ImGui::End();
 
         glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+        if (renderMode == 1) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+        glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)WIDTH / HEIGHT, 0.1f, 100.0f);
+        glm::mat4 view = camera.getViewMatrix();
+        glMatrixMode(GL_PROJECTION);
+        glLoadMatrixf(&projection[0][0]);
+        glMatrixMode(GL_MODELVIEW);
+        glLoadMatrixf(&view[0][0]);
+
         GLfloat light_pos[] = { lightPosition.x, lightPosition.y, lightPosition.z, 1.0f };
         glLightfv(GL_LIGHT0, GL_POSITION, light_pos);
 
-        if (renderMode == 0)
-            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-        else if (renderMode == 1)
-            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        drawAxes();
 
-        if (showExtrusion) {
-            glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)WIDTH / HEIGHT, 0.1f, 100.0f);
-            glm::mat4 view = camera.getViewMatrix();
-            glMatrixMode(GL_PROJECTION);
-            glLoadMatrixf(&projection[0][0]);
-            glMatrixMode(GL_MODELVIEW);
-            glLoadMatrixf(&view[0][0]);
-
-            drawAxes();
+        if (showExtrusion)
             drawMesh(extrudedMesh);
-        }
 
         drawCurve2D();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
         glfwSwapBuffers(window);
     }
 

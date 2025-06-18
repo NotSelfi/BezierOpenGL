@@ -12,5 +12,7 @@ struct Mesh {
     std::vector<glm::vec3> vertices;
     std::vector<glm::vec3> normals;
     std::vector<unsigned int> indices;
+
+    void computeNormals();
 };
 #endif //MESH_H

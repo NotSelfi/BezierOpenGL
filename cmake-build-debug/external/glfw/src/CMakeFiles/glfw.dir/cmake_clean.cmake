@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/glfw.dir/__/__/__/src/Camera.cpp.obj.d"
   "CMakeFiles/glfw.dir/__/__/__/src/Extrusion.cpp.obj"
   "CMakeFiles/glfw.dir/__/__/__/src/Extrusion.cpp.obj.d"
+  "CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj"
+  "CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj.d"
   "CMakeFiles/glfw.dir/context.c.obj"
   "CMakeFiles/glfw.dir/context.c.obj.d"
   "CMakeFiles/glfw.dir/egl_context.c.obj"

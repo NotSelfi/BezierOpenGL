@@ -161,6 +161,21 @@ CMakeFiles/imgui.dir/external/imgui/backends/imgui_impl_opengl3.cpp.s: cmake_for
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui.dir/external/imgui/backends/imgui_impl_opengl3.cpp.s"
 	C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\robai\Documents\GitHub\BezierOpenGL\external\imgui\backends\imgui_impl_opengl3.cpp -o CMakeFiles\imgui.dir\external\imgui\backends\imgui_impl_opengl3.cpp.s
 
+CMakeFiles/imgui.dir/src/Mesh.cpp.obj: CMakeFiles/imgui.dir/flags.make
+CMakeFiles/imgui.dir/src/Mesh.cpp.obj: CMakeFiles/imgui.dir/includes_CXX.rsp
+CMakeFiles/imgui.dir/src/Mesh.cpp.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/src/Mesh.cpp
+CMakeFiles/imgui.dir/src/Mesh.cpp.obj: CMakeFiles/imgui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/imgui.dir/src/Mesh.cpp.obj"
+	C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/imgui.dir/src/Mesh.cpp.obj -MF CMakeFiles\imgui.dir\src\Mesh.cpp.obj.d -o CMakeFiles\imgui.dir\src\Mesh.cpp.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Mesh.cpp
+
+CMakeFiles/imgui.dir/src/Mesh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui.dir/src/Mesh.cpp.i"
+	C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Mesh.cpp > CMakeFiles\imgui.dir\src\Mesh.cpp.i
+
+CMakeFiles/imgui.dir/src/Mesh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui.dir/src/Mesh.cpp.s"
+	C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Mesh.cpp -o CMakeFiles\imgui.dir\src\Mesh.cpp.s
+
 # Object files for target imgui
 imgui_OBJECTS = \
 "CMakeFiles/imgui.dir/external/imgui/imgui.cpp.obj" \
@@ -168,7 +183,8 @@ imgui_OBJECTS = \
 "CMakeFiles/imgui.dir/external/imgui/imgui_widgets.cpp.obj" \
 "CMakeFiles/imgui.dir/external/imgui/imgui_tables.cpp.obj" \
 "CMakeFiles/imgui.dir/external/imgui/backends/imgui_impl_glfw.cpp.obj" \
-"CMakeFiles/imgui.dir/external/imgui/backends/imgui_impl_opengl3.cpp.obj"
+"CMakeFiles/imgui.dir/external/imgui/backends/imgui_impl_opengl3.cpp.obj" \
+"CMakeFiles/imgui.dir/src/Mesh.cpp.obj"
 
 # External object files for target imgui
 imgui_EXTERNAL_OBJECTS =
@@ -179,9 +195,10 @@ libimgui.a: CMakeFiles/imgui.dir/external/imgui/imgui_widgets.cpp.obj
 libimgui.a: CMakeFiles/imgui.dir/external/imgui/imgui_tables.cpp.obj
 libimgui.a: CMakeFiles/imgui.dir/external/imgui/backends/imgui_impl_glfw.cpp.obj
 libimgui.a: CMakeFiles/imgui.dir/external/imgui/backends/imgui_impl_opengl3.cpp.obj
+libimgui.a: CMakeFiles/imgui.dir/src/Mesh.cpp.obj
 libimgui.a: CMakeFiles/imgui.dir/build.make
 libimgui.a: CMakeFiles/imgui.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libimgui.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libimgui.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\imgui.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\imgui.dir\link.txt --verbose=$(VERBOSE)
 

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/robai/Documents/GitHub/BezierOpenGL/src/BezierCurveData.cpp" "CMakeFiles/BezierOpenGL.dir/src/BezierCurveData.cpp.obj" "gcc" "CMakeFiles/BezierOpenGL.dir/src/BezierCurveData.cpp.obj.d"
   "C:/Users/robai/Documents/GitHub/BezierOpenGL/src/Camera.cpp" "CMakeFiles/BezierOpenGL.dir/src/Camera.cpp.obj" "gcc" "CMakeFiles/BezierOpenGL.dir/src/Camera.cpp.obj.d"
   "C:/Users/robai/Documents/GitHub/BezierOpenGL/src/Extrusion.cpp" "CMakeFiles/BezierOpenGL.dir/src/Extrusion.cpp.obj" "gcc" "CMakeFiles/BezierOpenGL.dir/src/Extrusion.cpp.obj.d"
+  "C:/Users/robai/Documents/GitHub/BezierOpenGL/src/Mesh.cpp" "CMakeFiles/BezierOpenGL.dir/src/Mesh.cpp.obj" "gcc" "CMakeFiles/BezierOpenGL.dir/src/Mesh.cpp.obj.d"
   "C:/Users/robai/Documents/GitHub/BezierOpenGL/src/main.cpp" "CMakeFiles/BezierOpenGL.dir/src/main.cpp.obj" "gcc" "CMakeFiles/BezierOpenGL.dir/src/main.cpp.obj.d"
   )
 

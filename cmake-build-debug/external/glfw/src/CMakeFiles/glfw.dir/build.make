@@ -296,11 +296,26 @@ external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/glfw.dir/__/__/__/src/Camera.cpp.s"
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Camera.cpp -o CMakeFiles\glfw.dir\__\__\__\src\Camera.cpp.s
 
+external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj: external/glfw/src/CMakeFiles/glfw.dir/flags.make
+external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj: external/glfw/src/CMakeFiles/glfw.dir/includes_CXX.rsp
+external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/src/Mesh.cpp
+external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj: external/glfw/src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj"
+	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj -MF CMakeFiles\glfw.dir\__\__\__\src\Mesh.cpp.obj.d -o CMakeFiles\glfw.dir\__\__\__\src\Mesh.cpp.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Mesh.cpp
+
+external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.i"
+	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Mesh.cpp > CMakeFiles\glfw.dir\__\__\__\src\Mesh.cpp.i
+
+external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.s"
+	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\robai\Documents\GitHub\BezierOpenGL\src\Mesh.cpp -o CMakeFiles\glfw.dir\__\__\__\src\Mesh.cpp.s
+
 external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj: external/glfw/src/CMakeFiles/glfw.dir/flags.make
 external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj: external/glfw/src/CMakeFiles/glfw.dir/includes_C.rsp
 external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glfw/src/win32_module.c
 external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj: external/glfw/src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj"
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj -MF CMakeFiles\glfw.dir\win32_module.c.obj.d -o CMakeFiles\glfw.dir\win32_module.c.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\external\glfw\src\win32_module.c
 
 external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.i: cmake_force
@@ -315,7 +330,7 @@ external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj: external/glfw/src/CMakeF
 external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj: external/glfw/src/CMakeFiles/glfw.dir/includes_C.rsp
 external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glfw/src/win32_time.c
 external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj: external/glfw/src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj"
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj -MF CMakeFiles\glfw.dir\win32_time.c.obj.d -o CMakeFiles\glfw.dir\win32_time.c.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\external\glfw\src\win32_time.c
 
 external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.i: cmake_force
@@ -330,7 +345,7 @@ external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj: external/glfw/src/CMak
 external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj: external/glfw/src/CMakeFiles/glfw.dir/includes_C.rsp
 external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glfw/src/win32_thread.c
 external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj: external/glfw/src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj"
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj -MF CMakeFiles\glfw.dir\win32_thread.c.obj.d -o CMakeFiles\glfw.dir\win32_thread.c.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\external\glfw\src\win32_thread.c
 
 external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.i: cmake_force
@@ -345,7 +360,7 @@ external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: external/glfw/src/CMakeF
 external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: external/glfw/src/CMakeFiles/glfw.dir/includes_C.rsp
 external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glfw/src/win32_init.c
 external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: external/glfw/src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj"
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj -MF CMakeFiles\glfw.dir\win32_init.c.obj.d -o CMakeFiles\glfw.dir\win32_init.c.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\external\glfw\src\win32_init.c
 
 external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.i: cmake_force
@@ -360,7 +375,7 @@ external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: external/glfw/src/CM
 external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: external/glfw/src/CMakeFiles/glfw.dir/includes_C.rsp
 external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glfw/src/win32_joystick.c
 external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: external/glfw/src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj"
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj -MF CMakeFiles\glfw.dir\win32_joystick.c.obj.d -o CMakeFiles\glfw.dir\win32_joystick.c.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\external\glfw\src\win32_joystick.c
 
 external/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.i: cmake_force
@@ -375,7 +390,7 @@ external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: external/glfw/src/CMa
 external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: external/glfw/src/CMakeFiles/glfw.dir/includes_C.rsp
 external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glfw/src/win32_monitor.c
 external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: external/glfw/src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj"
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj -MF CMakeFiles\glfw.dir\win32_monitor.c.obj.d -o CMakeFiles\glfw.dir\win32_monitor.c.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\external\glfw\src\win32_monitor.c
 
 external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.i: cmake_force
@@ -390,7 +405,7 @@ external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj: external/glfw/src/CMak
 external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj: external/glfw/src/CMakeFiles/glfw.dir/includes_C.rsp
 external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glfw/src/win32_window.c
 external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj: external/glfw/src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj"
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj -MF CMakeFiles\glfw.dir\win32_window.c.obj.d -o CMakeFiles\glfw.dir\win32_window.c.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\external\glfw\src\win32_window.c
 
 external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.i: cmake_force
@@ -405,7 +420,7 @@ external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj: external/glfw/src/CMake
 external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj: external/glfw/src/CMakeFiles/glfw.dir/includes_C.rsp
 external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glfw/src/wgl_context.c
 external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj: external/glfw/src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj"
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && C:\Users\robai\scoop\apps\mingw\current\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj -MF CMakeFiles\glfw.dir\wgl_context.c.obj.d -o CMakeFiles\glfw.dir\wgl_context.c.obj -c C:\Users\robai\Documents\GitHub\BezierOpenGL\external\glfw\src\wgl_context.c
 
 external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.i: cmake_force
@@ -433,6 +448,7 @@ glfw_OBJECTS = \
 "CMakeFiles/glfw.dir/null_joystick.c.obj" \
 "CMakeFiles/glfw.dir/__/__/__/src/Extrusion.cpp.obj" \
 "CMakeFiles/glfw.dir/__/__/__/src/Camera.cpp.obj" \
+"CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj" \
 "CMakeFiles/glfw.dir/win32_module.c.obj" \
 "CMakeFiles/glfw.dir/win32_time.c.obj" \
 "CMakeFiles/glfw.dir/win32_thread.c.obj" \
@@ -460,6 +476,7 @@ external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/null_window.
 external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj
 external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Extrusion.cpp.obj
 external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Camera.cpp.obj
+external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj
 external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj
 external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj
 external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj
@@ -470,7 +487,7 @@ external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/win32_window
 external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj
 external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/build.make
 external/glfw/src/libglfw3.a: external/glfw/src/CMakeFiles/glfw.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX static library libglfw3.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX static library libglfw3.a"
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && $(CMAKE_COMMAND) -P CMakeFiles\glfw.dir\cmake_clean_target.cmake
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\external\glfw\src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\glfw.dir\link.txt --verbose=$(VERBOSE)
 

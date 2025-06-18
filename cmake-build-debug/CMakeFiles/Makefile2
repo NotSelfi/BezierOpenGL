@@ -156,12 +156,12 @@ external/glfw/src/clean: external/glfw/src/CMakeFiles/update_mappings.dir/clean
 CMakeFiles/imgui.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=32,33,34,35,36,37,38 "Built target imgui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=35,36,37,38,39,40,41,42 "Built target imgui"
 .PHONY : CMakeFiles/imgui.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/imgui.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/imgui.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/imgui.dir/rule
@@ -173,7 +173,7 @@ imgui: CMakeFiles/imgui.dir/rule
 # codegen rule for target.
 CMakeFiles/imgui.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=32,33,34,35,36,37,38 "Finished codegen for target imgui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=35,36,37,38,39,40,41,42 "Finished codegen for target imgui"
 .PHONY : CMakeFiles/imgui.dir/codegen
 
 # clean rule for target.
@@ -188,12 +188,12 @@ CMakeFiles/imgui.dir/clean:
 CMakeFiles/glad.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=6,7 "Built target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=7,8,9 "Built target glad"
 .PHONY : CMakeFiles/glad.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/glad.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/glad.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/glad.dir/rule
@@ -205,7 +205,7 @@ glad: CMakeFiles/glad.dir/rule
 # codegen rule for target.
 CMakeFiles/glad.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=6,7 "Finished codegen for target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=7,8,9 "Finished codegen for target glad"
 .PHONY : CMakeFiles/glad.dir/codegen
 
 # clean rule for target.
@@ -222,12 +222,12 @@ CMakeFiles/BezierOpenGL.dir/all: CMakeFiles/glad.dir/all
 CMakeFiles/BezierOpenGL.dir/all: external/glfw/src/CMakeFiles/glfw.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BezierOpenGL.dir\build.make CMakeFiles/BezierOpenGL.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BezierOpenGL.dir\build.make CMakeFiles/BezierOpenGL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target BezierOpenGL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target BezierOpenGL"
 .PHONY : CMakeFiles/BezierOpenGL.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BezierOpenGL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 38
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 42
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/BezierOpenGL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/BezierOpenGL.dir/rule
@@ -239,7 +239,7 @@ BezierOpenGL: CMakeFiles/BezierOpenGL.dir/rule
 # codegen rule for target.
 CMakeFiles/BezierOpenGL.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BezierOpenGL.dir\build.make CMakeFiles/BezierOpenGL.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target BezierOpenGL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target BezierOpenGL"
 .PHONY : CMakeFiles/BezierOpenGL.dir/codegen
 
 # clean rule for target.
@@ -286,12 +286,12 @@ external/glfw/CMakeFiles/uninstall.dir/clean:
 external/glfw/src/CMakeFiles/glfw.dir/all:
 	$(MAKE) $(MAKESILENT) -f external\glfw\src\CMakeFiles\glfw.dir\build.make external/glfw/src/CMakeFiles/glfw.dir/depend
 	$(MAKE) $(MAKESILENT) -f external\glfw\src\CMakeFiles\glfw.dir\build.make external/glfw/src/CMakeFiles/glfw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31 "Built target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34 "Built target glfw"
 .PHONY : external/glfw/src/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
 external/glfw/src/CMakeFiles/glfw.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 external/glfw/src/CMakeFiles/glfw.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles 0
 .PHONY : external/glfw/src/CMakeFiles/glfw.dir/rule
@@ -303,7 +303,7 @@ glfw: external/glfw/src/CMakeFiles/glfw.dir/rule
 # codegen rule for target.
 external/glfw/src/CMakeFiles/glfw.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f external\glfw\src\CMakeFiles\glfw.dir\build.make external/glfw/src/CMakeFiles/glfw.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31 "Finished codegen for target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34 "Finished codegen for target glfw"
 .PHONY : external/glfw/src/CMakeFiles/glfw.dir/codegen
 
 # clean rule for target.
@@ -318,7 +318,7 @@ external/glfw/src/CMakeFiles/glfw.dir/clean:
 external/glfw/src/CMakeFiles/update_mappings.dir/all:
 	$(MAKE) $(MAKESILENT) -f external\glfw\src\CMakeFiles\update_mappings.dir\build.make external/glfw/src/CMakeFiles/update_mappings.dir/depend
 	$(MAKE) $(MAKESILENT) -f external\glfw\src\CMakeFiles\update_mappings.dir\build.make external/glfw/src/CMakeFiles/update_mappings.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=39 "Built target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=43 "Built target update_mappings"
 .PHONY : external/glfw/src/CMakeFiles/update_mappings.dir/all
 
 # Build rule for subdir invocation for target.
@@ -335,7 +335,7 @@ update_mappings: external/glfw/src/CMakeFiles/update_mappings.dir/rule
 # codegen rule for target.
 external/glfw/src/CMakeFiles/update_mappings.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f external\glfw\src\CMakeFiles\update_mappings.dir\build.make external/glfw/src/CMakeFiles/update_mappings.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=39 "Finished codegen for target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug\CMakeFiles --progress-num=43 "Finished codegen for target update_mappings"
 .PHONY : external/glfw/src/CMakeFiles/update_mappings.dir/codegen
 
 # clean rule for target.

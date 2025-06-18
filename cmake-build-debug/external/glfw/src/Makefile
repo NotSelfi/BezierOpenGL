@@ -236,6 +236,30 @@ __/__/__/src/Extrusion.cpp.s:
 	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug && $(MAKE) $(MAKESILENT) -f external\glfw\src\CMakeFiles\glfw.dir\build.make external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Extrusion.cpp.s
 .PHONY : __/__/__/src/Extrusion.cpp.s
 
+__/__/__/src/Mesh.obj: __/__/__/src/Mesh.cpp.obj
+.PHONY : __/__/__/src/Mesh.obj
+
+# target to build an object file
+__/__/__/src/Mesh.cpp.obj:
+	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug && $(MAKE) $(MAKESILENT) -f external\glfw\src\CMakeFiles\glfw.dir\build.make external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.obj
+.PHONY : __/__/__/src/Mesh.cpp.obj
+
+__/__/__/src/Mesh.i: __/__/__/src/Mesh.cpp.i
+.PHONY : __/__/__/src/Mesh.i
+
+# target to preprocess a source file
+__/__/__/src/Mesh.cpp.i:
+	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug && $(MAKE) $(MAKESILENT) -f external\glfw\src\CMakeFiles\glfw.dir\build.make external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.i
+.PHONY : __/__/__/src/Mesh.cpp.i
+
+__/__/__/src/Mesh.s: __/__/__/src/Mesh.cpp.s
+.PHONY : __/__/__/src/Mesh.s
+
+# target to generate assembly for a file
+__/__/__/src/Mesh.cpp.s:
+	cd /d C:\Users\robai\Documents\GitHub\BezierOpenGL\cmake-build-debug && $(MAKE) $(MAKESILENT) -f external\glfw\src\CMakeFiles\glfw.dir\build.make external/glfw/src/CMakeFiles/glfw.dir/__/__/__/src/Mesh.cpp.s
+.PHONY : __/__/__/src/Mesh.cpp.s
+
 context.obj: context.c.obj
 .PHONY : context.obj
 
@@ -760,6 +784,9 @@ help:
 	@echo ... __/__/__/src/Extrusion.obj
 	@echo ... __/__/__/src/Extrusion.i
 	@echo ... __/__/__/src/Extrusion.s
+	@echo ... __/__/__/src/Mesh.obj
+	@echo ... __/__/__/src/Mesh.i
+	@echo ... __/__/__/src/Mesh.s
 	@echo ... context.obj
 	@echo ... context.i
 	@echo ... context.s

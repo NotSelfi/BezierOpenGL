@@ -249,4 +249,18 @@ CMakeFiles/BezierOpenGL.dir/src/Extrusion.cpp.obj: \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/detail/type_half.inl \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/integer.hpp \
  C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/detail/func_integer.inl \
- C:/Users/robai/Documents/GitHub/BezierOpenGL/include/Mesh.hpp
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/include/Mesh.hpp \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/gtx/transform.hpp \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/gtc/matrix_transform.hpp \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_projection.hpp \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/gtc/constants.hpp \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/scalar_constants.hpp \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/scalar_constants.inl \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/gtc/constants.inl \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_projection.inl \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_clip_space.hpp \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_clip_space.inl \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_transform.hpp \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/ext/matrix_transform.inl \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/gtc/matrix_transform.inl \
+ C:/Users/robai/Documents/GitHub/BezierOpenGL/external/glm/glm/gtx/transform.inl

@@ -478,6 +478,36 @@ src/Extrusion.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BezierOpenGL.dir\build.make CMakeFiles/BezierOpenGL.dir/src/Extrusion.cpp.s
 .PHONY : src/Extrusion.cpp.s
 
+src/Mesh.obj: src/Mesh.cpp.obj
+.PHONY : src/Mesh.obj
+
+# target to build an object file
+src/Mesh.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/src/Mesh.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/src/Mesh.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BezierOpenGL.dir\build.make CMakeFiles/BezierOpenGL.dir/src/Mesh.cpp.obj
+.PHONY : src/Mesh.cpp.obj
+
+src/Mesh.i: src/Mesh.cpp.i
+.PHONY : src/Mesh.i
+
+# target to preprocess a source file
+src/Mesh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/src/Mesh.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/src/Mesh.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BezierOpenGL.dir\build.make CMakeFiles/BezierOpenGL.dir/src/Mesh.cpp.i
+.PHONY : src/Mesh.cpp.i
+
+src/Mesh.s: src/Mesh.cpp.s
+.PHONY : src/Mesh.s
+
+# target to generate assembly for a file
+src/Mesh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/src/Mesh.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/src/Mesh.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BezierOpenGL.dir\build.make CMakeFiles/BezierOpenGL.dir/src/Mesh.cpp.s
+.PHONY : src/Mesh.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -550,6 +580,9 @@ help:
 	@echo ... src/Extrusion.obj
 	@echo ... src/Extrusion.i
 	@echo ... src/Extrusion.s
+	@echo ... src/Mesh.obj
+	@echo ... src/Mesh.i
+	@echo ... src/Mesh.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

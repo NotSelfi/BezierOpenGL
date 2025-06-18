@@ -10,6 +10,7 @@ add_library(glfw ${GLFW_LIBRARY_TYPE}
         ../../../include/Extrusion.hpp
         ../../../include/Mesh.hpp
         ../../../src/Camera.cpp
+        ../../../src/Mesh.cpp
 )
 
 # The time, thread and module code is shared between all backends on a given OS,

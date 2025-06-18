@@ -2,6 +2,6 @@
 -- Including Win32 support
 -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
 -- Documentation generation requires Doxygen 1.9.8 or later
--- Configuring done (0.9s)
--- Generating done (0.4s)
+-- Configuring done (0.5s)
+-- Generating done (0.5s)
 -- Build files have been written to: C:/Users/robai/Documents/GitHub/BezierOpenGL/cmake-build-debug

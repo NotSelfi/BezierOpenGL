@@ -1,8 +1,13 @@
 //
 // Created by robai on 17/06/2025.
 //
+#define GLM_ENABLE_EXPERIMENTAL
 
 #include "../include/Extrusion.hpp"
+#include "../external/glm/glm/glm.hpp"
+#include "../external/glm/glm/gtx/transform.hpp"
+#include "../external/glm/glm/gtc/constants.hpp"
+
 float pi = 3.14159265358;
 
 Mesh extrudeLinear(const std::vector<glm::vec2>& profile, float height, float scaleTop) {
@@ -116,5 +121,60 @@ Mesh extrudeRevolution(const std::vector<glm::vec2>& profile, int slices = 36) {
     }
     for (auto& n : mesh.normals) n = glm::normalize(n);
 
+    return mesh;
+}
+Mesh extrudeGeneralized(const std::vector<glm::vec2>& profile, const std::vector<glm::vec3>& path) {
+    Mesh mesh;
+    if (profile.empty() || path.size() < 2) return mesh;
+
+    size_t profileSize = profile.size();
+    size_t pathSize = path.size();
+
+    // Génération des sommets
+    for (size_t i = 0; i < pathSize; ++i) {
+        glm::vec3 tangent;
+        if (i < pathSize - 1)
+            tangent = glm::normalize(path[i + 1] - path[i]);
+        else
+            tangent = glm::normalize(path[i] - path[i - 1]);
+
+        // Orthonormal basis
+        glm::vec3 up(0.0f, 1.0f, 0.0f);
+        if (glm::abs(glm::dot(tangent, up)) > 0.99f) {
+            up = glm::vec3(1.0f, 0.0f, 0.0f); // éviter colinéarité
+        }
+        glm::vec3 side = glm::normalize(glm::cross(up, tangent));
+        glm::vec3 normal = glm::normalize(glm::cross(tangent, side));
+
+        glm::mat3 frame(side, normal, tangent); // colonne = axes
+
+        for (const auto& p : profile) {
+            glm::vec3 local(p.x, p.y, 0.0f);
+            glm::vec3 worldPos = path[i] + frame * local;
+            mesh.vertices.push_back(worldPos);
+        }
+    }
+
+    // Génération des indices
+    for (size_t i = 0; i < pathSize - 1; ++i) {
+        for (size_t j = 0; j < profileSize; ++j) {
+            int curr = i * profileSize + j;
+            int next = curr + profileSize;
+            int next_j = (j + 1) % profileSize;
+            int curr_next = i * profileSize + next_j;
+            int next_next = curr_next + profileSize;
+
+            mesh.indices.push_back(curr);
+            mesh.indices.push_back(curr_next);
+            mesh.indices.push_back(next);
+
+            mesh.indices.push_back(next);
+            mesh.indices.push_back(curr_next);
+            mesh.indices.push_back(next_next);
+        }
+    }
+
+    // Calculs des normales
+    mesh.computeNormals();
     return mesh;
 }
